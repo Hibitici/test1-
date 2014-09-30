@@ -1,0 +1,102 @@
+
+
+*{
+  padding: 0;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  box-sizing: border-box;
+}
+.float-right{
+  float: right;
+}
+.fa{
+ font-size: .8em;
+  line-height: 22px !important;
+}
+dropdown{
+   display: inline-block;
+   margin: 20px 50px; 
+}
+dropdown label, dropdown ul li{
+  display: block;
+  width: 200px;
+  background: #ECF0F1;
+  padding: 15px 20px;
+}
+dropdown label:hover, dropdown ul li:hover{
+  background: #1ABC9C;
+  color: white;
+  cursor: pointer;
+}
+dropdown label{
+  color: #1ABC9C;
+  border-left: 4px solid #1ABC9C;
+  border-radius: 0 5px 0 0; 
+  position: relative;
+  z-index: 2;
+}
+dropdown input{
+  display: none;
+}
+dropdown input ~ ul{
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  top: -20px;
+  z-index: 1;
+}
+dropdown input:checked + label{
+  background: #1ABC9C;
+  color: white;
+}
+
+dropdown input:checked ~ ul{
+  visibility: visible;
+  opacity: 1;
+  top: 0;
+}
+$colors: #E74C3C, #0072B5, #2C3E50;
+
+@for $i from 1 through length($colors) {
+  dropdown ul li:nth-child(#{$i}) {
+    border-left: 4px solid nth($colors, $i);
+    .fa{
+      color: nth($colors, $i);
+    }
+    &:hover {
+        background: nth($colors, $i);
+        color: white;
+      .fa{
+        color: white; 
+      }
+    }
+  }
+}
+
+.animate{
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -ms-transition: all .3s;
+  transition: all .3s;  
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden; /* Chrome and Safari */
+  -moz-backface-visibility:hidden; /* Firefox */
+  -ms-backface-visibility:hidden; /* Internet Explorer */
+}
+/* js-disabled class - set image sizes so they all fit in the viewer */
+.js-disabled img { width:100px; height:100px; display:block; float:left; margin:30px 0 0; }
+
+#outerContainer { width:542px; height:202px; margin:auto; position:relative; }
+#imageScroller { width:542px; height:202px; position:relative; background:#000000 url(http://nettuts.s3.amazonaws.com/300_jquery/image%20Scroller/images/imageScrollerBG.png) no-repeat; }
+#viewer { width:522px; height:182px; overflow:hidden; margin:auto; position:relative; top:10px; }
+#imageScroller a:active, #imageScroller a:visited { color:#000000; }
+#imageScroller a img { border:0; }
+#controls { width:534px; height:47px; background:url(http://nettuts.s3.amazonaws.com/300_jquery/image%20Scroller/images/controlsBG.png) no-repeat; position:absolute; top:4px; left:4px; z-index:10;  }
+#controls a { width:37px; height:35px; position:absolute; top:3px; }
+#controls a:active, #controls a:visited { color:#0d0d0d; }
+#title { color:#ffffff; font-family:arial; font-size:100%; font-weight:bold; width:100%; text-align:center; margin-top:10px; }
+#rtl { background:url(http://www.edwardelric.com/wallpapers/official-1024.jpg) no-repeat; left:100px; }
+#rtl:hover { background:url(http://tce.eew.technion.ac.il/files/2013/02/Facebook.png) no-repeat; left:99px; }
+#ltr { background:url(http://img1.wikia.nocookie.net/__cb20130808121919/finalfantasy/images/1/19/Kingdom_Hearts_Characters.jpg) no-repeat; right:100px; }
+#ltr:hover { background:url(http://www.animextremist.com/imagenes/soul-eater/souleater61.jpg) no-repeat; }
